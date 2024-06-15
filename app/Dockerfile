@@ -2,7 +2,9 @@
 # Use the official Python 3.11 image as the base image
 FROM python:3.11 
 
-RUN apt-get install -y iputils-ping nano
+RUN apt-get update
+RUN apt-get install -y iputils-ping 
+RUN apt-get install -y net-tools
 # Set the working directory inside the container
 WORKDIR /app
 

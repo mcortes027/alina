@@ -43,6 +43,6 @@ class UnityConnector:
                 connection.close()
     
     def handle_rag_logic(self,prompt):
-        response = self.rag.handle(prompt)
+        response = self.rag.queryllm(prompt)
         self.send(response)
 #Angela ip: 192.168.1.222

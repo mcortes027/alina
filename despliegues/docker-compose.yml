@@ -30,9 +30,10 @@ services:
       resources:
         reservations:
           devices:
-          - driver: nvidia
-            capabilities: ["gpu"]
-            count: all
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
     networks:
       red_llm:
         ipv4_address: 172.18.0.3
