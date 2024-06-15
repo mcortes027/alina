@@ -21,6 +21,10 @@ try:
 
     os.environ['VOLUMEN_BACKUPS'] = variables_entorno['volumen_backups']
     print(f"Se ha asignado el path VOLUMEN_BACKUPS:{variables_entorno['volumen_backups']}")
+    
+    os.environ['VOLUMEN_CODE'] = variables_entorno['volumen_code']
+    print(f"Se ha asignado el path VOLUMEN_CODE:{variables_entorno['volumen_code']}")
+
 except:
     print("Por favor recuerda pasar como argumento el nombre del entorno en el que estás desplegando")
     print("El entorno ha de estar definido en config.py")

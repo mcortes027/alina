@@ -6,23 +6,20 @@
 
 
 entornos ={
-      'clase':{
-            "volumen_chromadb":"/SSD1/home/ciabd12/volumenes_produccion/chromadb-data",
-            "volumen_ollama":"/reto_ceiabda_produccion/ollama-data",
-            "volumen_mysql":"/reto_ceiabda_produccion/mysql-data",
-            "volumen_backups":"/reto_ceiabda_produccion/backups"
-      },
-      'joseramon':{
-            "volumen_chromadb":'C:\\Users\\JRBlanco\\Dev\\reto_server\\chromadb-data',
-            "volumen_ollama":'C:\\Users\\JRBlanco\\Dev\\reto_server\\ollama-data',
-            "volumen_mysql":'C:\\Users\\JRBlanco\\Dev\\reto_server\\mysql_data',
-            "volumen_backups":'C:\\Users\\JRBlanco\\Dev\\reto_server\\backups'
+      'angela':{
+            "volumen_chromadb":'C:\\Users\\pc\\Dev\\alina\\chromadb-data',
+            "volumen_ollama":'C:\\Users\\pc\\Dev\\alina\\ollama-data',
+            "volumen_mysql":'C:\\Users\\pc\\Dev\\alina\\mysql_data',
+            "volumen_backups":'C:\\Users\\pc\\Dev\\alina\\backups',
+            "volumen_code":'C:\\Users\\pc\\Documents\\Alina\\alina\\app'
       },
       'manolo':{
-            "volumen_chromadb":'C:\\Users\\m_cor\\Dev\\reto_server\\chromadb-data',
-            "volumen_ollama":'C:\\Users\\m_cor\\Dev\\reto_server\\ollama-data',
-            "volumen_mysql":'C:\\Users\\m_cor\\Dev\\reto_server\\mysql_data',
-            "volumen_backups":'C:\\Users\\m_cor\\Dev\\reto_server\\backups'
+            "volumen_chromadb":'C:\\Users\\m_cor\\Dev\\alina\\chromadb-data',
+            "volumen_ollama":'C:\\Users\\m_cor\\Dev\\alina\\ollama-data',
+            "volumen_mysql":'C:\\Users\\m_cor\\Dev\\alina\\mysql_data',
+            "volumen_backups":'C:\\Users\\m_cor\\Dev\\alina\\backups',
+            "volumen_code":'C:\\Users\\m_cor\\Documents\\Alina\\alina\\app'
+            
       }         
 } 
 
