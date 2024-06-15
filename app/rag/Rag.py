@@ -9,7 +9,7 @@ import ollama, logging, os
 
 class Rag:
     
-    def __init__(self, host_ollama='localhost', port=11434, model="llama3", chroma_host='localhost', asincrono=False):
+    def __init__(self, host_ollama='172.18.0.3', port=11434, model="llama3", chroma_host='172.18.0.2', asincrono=False):
         self._inicia_logs()
         
         self.ChromaDB = ChromaVectorStore(host=chroma_host, host_Ollama=host_ollama)
@@ -38,20 +38,23 @@ class Rag:
             self.logger.info("Contexto recuperado de la base de datos Chroma.")
         except Exception as e:
             self.logger.error(f"Error al recuperar contexto de la base de datos Chroma: {e}")
-            return "Lo siento, por problemas técnicos no puedo responder a tu pregunta en este momento.\nInténtelo más tarde.\n\nGracias."
+            return f"Lo siento, por problemas técnicos no puedo responder a tu pregunta en este momento.\nInténtelo más tarde.\n\nGracias.\n\n Error al recuperar contexto de la base de datos Chroma \\n {e}"
         
         #prompt = f"Pregunta: {query}\n\nContexto (responde solo sobre el contenido del texto entregado): {contexto}\n\nLa Respuesta siempre en Español"
         
         
         prompt = (
             f"Pregunta: {query}\n\n"
-            f"Contexto (Responde solo utilizando la información del texto proporcionado): {contexto}\n\n"
+            f"Contexto (Responde solo utilizando la informacion del texto proporcionado): {contexto}\n\n"
             "Instrucciones:\n"
-            "1. Responde solo utilizando la información proporcionada en el contexto.\n"
-            "2. No añadas información externa o inventada.\n"
-            "3. La respuesta debe estar completamente en español.\n\n"
-            #"Respuesta:"
-        )
+            "1. Responde basandote en la informacion proporcionada en el contexto.\n"
+            "2. Puedes añadir informacion inventada que este relacionada con el contexto.\n"
+            "3. Responde sin olvidar que eres Alina de la Capilla Lunar una joven de 22 años cerrada, con picardía, inteligente, serena.\n"
+            "4. Responde sin demasiadas florituras, de forma clara y concisa ya que Alina es austera.\n"
+            "5. La respuesta debe estar completamente en español.\n"
+            "6. Debes responder con lenguaje medieval.\n\n"
+        )        
+
         try:
             respuestalln = self.clientOllama.chat(model="llama3", 
                                     messages=[{"role": "system", "content": prompt}],
@@ -61,7 +64,7 @@ class Rag:
             return respuestalln['message']['content']
         except Exception as e:
             self.logger.error(f"Error al obtener respuesta del modelo de lenguaje: {e}")
-            return "Lo siento, por problemas técnicos no puedo responder a tu pregunta en este momento.\nInténtelo más tarde.\n\nGracias."
+            return f"Lo siento, por problemas técnicos no puedo responder a tu pregunta en este momento.\nInténtelo más tarde.\n\nGracias. \n\nError al obtener respuesta del modelo de lenguaje.{e}"
     
     async def queryllm_stream(self, query):
         """
@@ -78,17 +81,20 @@ class Rag:
             self.logger.info("Contexto recuperado de la base de datos Chroma.")
         except Exception as e:
             self.logger.error(f"Error al recuperar contexto de la base de datos Chroma: {e}")
-            yield "Lo siento, por problemas tecnicos no puedo responder a tu pregunta en este momento.\nIntentelo mas tarde.\n\nGracias."
+            yield f"Lo siento, por problemas tecnicos no puedo responder a tu pregunta en este momento.\nIntentelo mas tarde.\n\nGracias.{e}"
             return
         
         prompt = (
             f"Pregunta: {query}\n\n"
-            f"Contexto (Responde solo utilizando la información del texto proporcionado): {contexto}\n\n"
+            f"Contexto (Responde solo utilizando la informacion del texto proporcionado): {contexto}\n\n"
             "Instrucciones:\n"
-            "1. Responde solo utilizando la información proporcionada en el contexto.\n"
-            "2. No añadas información externa o inventada.\n"
-            "3. La respuesta debe estar completamente en español.\n\n"
-        )
+            "1. Responde basandote en la informacion proporcionada en el contexto.\n"
+            "2. Puedes añadir informacion inventada que este relacionada con el contexto.\n"
+            "3. Responde sin olvidar que eres Alina de la Capilla Lunar una joven de 22 años cerrada, con picardía, inteligente, serena.\n"
+            "4. Responde sin demasiadas florituras, de forma clara y concisa ya que Alina es austera.\n"
+            "5. La respuesta debe estar completamente en español.\n"
+            "6. Debes responder con lenguaje medieval.\n\n"
+        )   
 
         try:
             async for part in (await self.clientOllama.chat(model="llama3", 
@@ -98,7 +104,7 @@ class Rag:
                 yield part['message']['content']
         except Exception as e:
             self.logger.error(f"Error al obtener respuesta del modelo de lenguaje: {e}")
-            yield "Lo siento, por problemas tecnicos no puedo responder a tu pregunta en este momento.\nIntentelo mas tarde.\n\nGracias."
+            yield f"Lo siento, por problemas tecnicos no puedo responder a tu pregunta en este momento.\nIntentelo mas tarde.\n\nGracias.{e}"
     
     def info_llm(self):
         return ollama.show('llama3')
@@ -128,21 +134,19 @@ class Rag:
 
 # Ejemplo de uso Asincrono:
 # async def main():
-#     llm = Rag(asincrono=True)
-#     query = "Crea un resumen con los requisitos de las ayudas al transporte de los alumnos que hacen FP"
+#      llm = Rag(asincrono=True)
+#      query = "Crea un resumen con los requisitos de las ayudas al transporte de los alumnos que hacen FP"
 
-#     async for respuesta in llm.queryllm_stream(query):
-#         print(respuesta)
+#      async for respuesta in llm.queryllm_stream(query):
+#          print(respuesta)
 
 # if __name__ == '__main__':
 #     import asyncio
 #     asyncio.run(main())
 
 #Ejemplo de uso NO Asincrono:
-# if __name__ == '__main__':
-#     llm = Rag()
-#     query = "¿Qué es un loro?"
-
-#     respuesta = llm.queryllm(query)
-
-#     print(respuesta)
+if __name__ == '__main__':
+    llm = Rag()
+    query = "¿Que tal tu dia?"
+    respuesta = llm.queryllm(query)
+    print(respuesta)

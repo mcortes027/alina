@@ -78,17 +78,19 @@ class Rag:
             self.logger.info("Contexto recuperado de la base de datos Chroma.")
         except Exception as e:
             self.logger.error(f"Error al recuperar contexto de la base de datos Chroma: {e}")
-            yield "Lo siento, por problemas tecnicos no puedo responder a tu pregunta en este momento.\nIntentelo mas tarde.\n\nGracias."
+            yield "No quiero responderte a esa pregunta."
             return
         
         prompt = (
             f"Pregunta: {query}\n\n"
-            f"Contexto (Responde solo utilizando la información del texto proporcionado): {contexto}\n\n"
+            f"Contexto (Responde solo utilizando la informacion del texto proporcionado): {contexto}\n\n"
             "Instrucciones:\n"
-            "1. Responde solo utilizando la información proporcionada en el contexto.\n"
-            "2. No añadas información externa o inventada.\n"
-            "3. La respuesta debe estar completamente en español.\n\n"
-        )
+            "1. Responde basandote en la informacion proporcionada en el contexto.\n"
+            "2. Puedes añadir informacion inventada que este relacionada con el contexto.\n"
+            "3. Responde sin olvidar que eres Alina de la Capilla Lunar una joven de 22 años cerrada, con picardía, inteligente, fuerte, curiosa, valiente, deprimida pero esperanzada.\n"
+            "4. La respuesta debe estar completamente en español.\n"
+            "5. Debes responder con lenguaje medieval.\n"
+        )        
 
         try:
             async for part in (await self.clientOllama.chat(model="llama3", 
@@ -98,7 +100,7 @@ class Rag:
                 yield part['message']['content']
         except Exception as e:
             self.logger.error(f"Error al obtener respuesta del modelo de lenguaje: {e}")
-            yield "Lo siento, por problemas tecnicos no puedo responder a tu pregunta en este momento.\nIntentelo mas tarde.\n\nGracias."
+            yield "No quiero responderte a esa pregunta"
     
     def info_llm(self):
         return ollama.show('llama3')
@@ -127,22 +129,19 @@ class Rag:
 
 
 # Ejemplo de uso Asincrono:
-# async def main():
-#     llm = Rag(asincrono=True)
-#     query = "Crea un resumen con los requisitos de las ayudas al transporte de los alumnos que hacen FP"
+#async def main():
+#    llm = Rag(asincrono=True)
+#    query = "Crea un resumen con los requisitos de las ayudas al transporte de los alumnos que hacen FP"
+#    async for respuesta in llm.queryllm_stream(query):
+#            print(respuesta)
 
-#     async for respuesta in llm.queryllm_stream(query):
-#         print(respuesta)
-
-# if __name__ == '__main__':
-#     import asyncio
-#     asyncio.run(main())
+#if __name__ == '__main__':
+#    import asyncio
+#    asyncio.run(main())
 
 #Ejemplo de uso NO Asincrono:
-# if __name__ == '__main__':
-#     llm = Rag()
-#     query = "¿Qué es un loro?"
-
-#     respuesta = llm.queryllm(query)
-
-#     print(respuesta)
+if __name__ == '__main__':
+    llm = Rag()
+    query = "¿Qué es un loro?"
+    respuesta = llm.queryllm(query)
+    print(respuesta)
