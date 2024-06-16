@@ -1,11 +1,12 @@
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.document_loaders import PyPDFLoader
 import chromadb, logging, os
 
 class ChromaVectorStore:
     
-    def __init__(self, host="localhost", port=8000, collection_name="ChatBOC_BD_Vector", host_Ollama="localhost", port_Ollama=11434):
+    def __init__(self, host="localhost", port=8000, collection_name="Alina_BD_Vector", host_Ollama="localhost", port_Ollama=11434):
         
         self._inicia_logs() # Inicializa los registros de log.
         
@@ -117,19 +118,15 @@ class ChromaVectorStore:
                
                 
 #ejemplo de uso
-#if __name__ == '__main__':
-# chromavector = ChromaVectorStore()
-# print(chromavector.client.list_collections())
+if __name__ == '__main__':
+    chromavector = ChromaVectorStore( host="172.18.0.2", port=8000, collection_name="Alina_BD_Vector", host_Ollama="172.18.0.3", port_Ollama=11434)
+    print(f"Connections: {chromavector.client.list_collections()}")
+    loader = PyPDFLoader('corpus.pdf')
+    paginas = loader.load()
+    print(paginas[0].metadata['source'])
+    print("Metiendo documento en la base de datos")
+    chromavector.add_documento(paginas)
+    text = chromavector.get_documents("Quien es Aiden?")
 
-
-# loader = PyPDFLoader('../data/boc_7.pdf')
-# paginas = loader.load()
-
-# print(paginas[0].metadata['source'])
-
-    #chromavector.add_documento(paginas)
-
-    #text = chromavector.get_documents("Información pública del acuerdo provisional de modificación de la Tasa por prestación del Servicio de Recogidade Basura")
-
-    #print(text)
+    #print(" +--->", texto)
 

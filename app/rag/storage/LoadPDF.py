@@ -1,4 +1,6 @@
 from langchain_community.document_loaders import PyPDFLoader
+from langchain.text_splitter import CharacterTextSplitter
+
 from tqdm import tqdm
 import os, logging
 
