@@ -19,7 +19,7 @@ entornos ={
             "volumen_ollama":'C:\\Users\\m_cor\\Dev\\alina\\ollama-data',
             "volumen_mysql":'C:\\Users\\m_cor\\Dev\\alina\\mysql_data',
             "volumen_backups":'C:\\Users\\m_cor\\Dev\\alina\\backups',
-            "volumen_code":'C:\\Users\\m_cor\\Documents\\Alina\\alina\\app',
+            "volumen_code":'C:\\Users\\m_cor\Dev\\alina\\alina\\app\\rag',
             "volumen_audio":'C:\\Users\\m_cor\\Dev\\alina\\audio'
             
       }         
