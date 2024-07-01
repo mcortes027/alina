@@ -6,9 +6,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-    #  - C:\Users\JRBlanco\Dev\reto_server\chromadb-data:/chroma/chroma
       - ${VOLUMEN_CHROMADB}:/chroma/chroma
-    #  - C:\Users\m_cor\Dev\reto_server\chromadb-data:/chroma/chroma
     environment:
       - ALLOW_RESET=TRUE
       - IS_PERSISTENT=TRUE

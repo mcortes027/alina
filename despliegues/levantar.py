@@ -19,15 +19,11 @@ try:
     if platform.system() == 'Windows':
         subprocess.run(["setx", "VOLUMEN_CHROMADB", variables_entorno['volumen_chromadb']], check=True)
         subprocess.run(["setx", "VOLUMEN_OLLAMA", variables_entorno['volumen_ollama']], check=True)
-        subprocess.run(["setx", "VOLUMEN_MYSQL", variables_entorno['volumen_mysql']], check=True)
-        subprocess.run(["setx", "VOLUMEN_BACKUPS", variables_entorno['volumen_backups']], check=True)
         subprocess.run(["setx", "VOLUMEN_CODE", variables_entorno['volumen_code']], check=True)
         subprocess.run(["setx", "VOLUMEN_AUDIO", variables_entorno['volumen_audio']], check=True)
     else:
         os.environ['VOLUMEN_CHROMADB'] = variables_entorno['volumen_chromadb']
         os.environ['VOLUMEN_OLLAMA'] = variables_entorno['volumen_ollama']
-        os.environ['VOLUMEN_MYSQL'] = variables_entorno['volumen_mysql']
-        os.environ['VOLUMEN_BACKUPS'] = variables_entorno['volumen_backups']
         os.environ['VOLUMEN_CODE'] = variables_entorno['volumen_code']
         os.environ['VOLUMEN_AUDIO'] = variables_entorno['volumen_audio']
 

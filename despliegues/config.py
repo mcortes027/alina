@@ -9,16 +9,12 @@ entornos ={
       'angela':{
             "volumen_chromadb":'C:\\Users\\PC\\Dev\\alina\\chromadb-data',
             "volumen_ollama":'C:\\Users\\PC\\Dev\\alina\\ollama-data',
-            "volumen_mysql":'C:\\Users\\PC\\Dev\\alina\\mysql_data',
-            "volumen_backups":'C:\\Users\\PC\\Dev\\alina\\backups',
             "volumen_code":'C:\\alina\\app',
             "volumen_audio":'C:\\Users\\PC\\Dev\\alina\\audio'
       },
       'manolo':{
             "volumen_chromadb":'C:\\Users\\m_cor\\Dev\\alina\\chromadb-data',
             "volumen_ollama":'C:\\Users\\m_cor\\Dev\\alina\\ollama-data',
-            "volumen_mysql":'C:\\Users\\m_cor\\Dev\\alina\\mysql_data',
-            "volumen_backups":'C:\\Users\\m_cor\\Dev\\alina\\backups',
             "volumen_code":'C:\\Users\\m_cor\Dev\\alina\\alina\\app',
             "volumen_audio":'C:\\Users\\m_cor\\Dev\\alina\\audio'
             

@@ -11,15 +11,11 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    steps:
-    - name: docker build scrapper image
-      working-directory: /work/reto_ceiabd/reto_ceiabd/src/scrapper
-      run: sudo docker build -t mcortes027/ceiabda_scrapper:latest .
-        
-    - name: docker build web_app image
-      working-directory: /work/reto_ceiabd/reto_ceiabd/src/web_app
-      run: sudo docker build -t mcortes027/ceiabda_gui:latest .
+    steps:        
+    - name: docker build rag image
+      working-directory: /work/alina/alina/app
+      run: sudo docker build -t mcortes027/alina_rag:latest .
       
     - name: docker build runner image
-      working-directory: /work/reto_ceiabd/reto_ceiabd/despliegues/git-runner
+      working-directory: /work/alina/alina/despliegues/git-runner
       run: sudo docker build -t mcortes027/ceiabda_runner:latest .
