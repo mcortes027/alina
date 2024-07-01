@@ -3,7 +3,7 @@
 
 # Flow
 '''mermaid
-    flowchart TD
+    flowchart TD;
         Us[Usuario] -->|User enters Prompt|Un(Unity)
         Un --> R{Rag}
         R <--> |Query para Contexto|C(ChromaDB)
