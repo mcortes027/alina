@@ -24,8 +24,10 @@ Dentro de la carpeta despliegues, en "config.py" has de añadir un nuevo diccion
 ## CI
 Ya que de momento la imagen se encuentra en un repositorio privado de docker, has de ir a ./app y ejecutar docker build -t mcortes027/alina_rag:latest .
 ## Despliegue
-Una vez has hecho la imagen, puedes desplegar posicionandote dentro de la carpeta despliegues y ejecutando python3 levantar.py (tuentorno)
+Una vez has hecho la imagen, puedes desplegar posicionándote dentro de la carpeta despliegues y ejecutando python3 levantar.py (tuentorno)
 ## Sobre el contexto
 Si deseas ejecutar el RAG con el contexto cargado, has de ejecutar levantar.py, y a continuación crear la BBDD Alina_BD_Vector dentro de chromadb, esto se puede hacer de la siguiente manera: 
 WIP!!
 
+# Correr Frontend
+Con el despliegue hecho primero, puedes ir dentro de Alina_frontend y ejecutar el .exe
