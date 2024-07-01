@@ -2,6 +2,7 @@
 
 
 # Flow
+''' mermaid
 flowchart TD
     Us[Usuario] -->|User enters Prompt|Un(Unity)
     Un --> R{Rag}
@@ -10,3 +11,4 @@ flowchart TD
     O --> |Respuesta del LLM|R
     R --> |Respuesta del LLMU editada|Un
     Un --> |Usuario lee y escucha respuesta|Us
+'''
