@@ -10,7 +10,7 @@ Este luego se comunicate mediante un servidor TCP con una aplicación de escrito
         R <--> |Query para Contexto|C(ChromaDB);
         R --> |Contexto+Prompt|O(Ollama);
         O --> |Respuesta del LLM|R;
-        R --> |Respuesta del LLMU editada|Un;
+        R --> |Respuesta del LLM editada|Un;
         Un --> |Usuario lee y escucha respuesta|Us;
 ```
 
