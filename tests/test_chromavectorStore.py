@@ -29,19 +29,19 @@ class TestChromaVectorStore(unittest.TestCase):
         # Test if the vector store is initialized correctly
         self.assertEqual(self.store.host, "localhost")
         self.assertEqual(self.store.port, 8000)
-        self.assertEqual(self.store.collection_name, "ChatBOC_BD_Vector")
+        self.assertEqual(self.store.collection_name, "Alina_BD_Vector")
 
     @patch('your_module.Chroma')
     def test_initialize_vectorstore(self, mock_chroma):
         self.store._initialize_vectorstore()
-        mock_chroma.assert_called_once_with(client=self.mock_client, embedding_function=self.mock_embeddings, collection_name="ChatBOC_BD_Vector")
+        mock_chroma.assert_called_once_with(client=self.mock_client, embedding_function=self.mock_embeddings, collection_name="Alina_BD_Vector")
 
     @patch('your_module.Chroma')
     def test_add_documento(self, mock_chroma):
         documento = MagicMock()
         self.store.add_documento(documento)
         self.store.text_splitter.split_documents.assert_called_once_with(documento)
-        mock_chroma.from_documents.assert_called_once_with(documents=['chunk1', 'chunk2'], embedding=self.mock_embeddings, client=self.mock_client, collection_name="ChatBOC_BD_Vector")
+        mock_chroma.from_documents.assert_called_once_with(documents=['chunk1', 'chunk2'], embedding=self.mock_embeddings, client=self.mock_client, collection_name="Alina_BD_Vector")
 
     @patch('your_module.Chroma')
     def test_add_list_documentos(self, mock_chroma):

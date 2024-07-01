@@ -239,3 +239,15 @@
 06/15/2024 08:34:51 PM INFO __main__ Contexto recuperado de la base de datos Chroma.
 06/15/2024 08:35:46 PM INFO httpx HTTP Request: POST http://172.18.0.3:11434/api/chat "HTTP/1.1 200 OK"
 06/15/2024 08:35:46 PM INFO __main__ Respuesta obtenida del modelo de lenguaje.
+07/01/2024 05:18:29 PM INFO chromadb.telemetry.product.posthog Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+07/01/2024 05:18:29 PM INFO chromadb.telemetry.product.posthog Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+07/01/2024 05:18:29 PM INFO storage.ChromaVectorStore Conexión exitosa con el servidor de Chroma
+07/01/2024 05:18:29 PM INFO storage.ChromaVectorStore Base de datos Chroma inicializada.
+07/01/2024 05:20:05 PM INFO httpx HTTP Request: POST http://172.18.0.3:11434/api/chat "HTTP/1.1 200 OK"
+07/01/2024 05:20:05 PM INFO Rag Respuesta obtenida del modelo de lenguaje.
+07/01/2024 05:22:53 PM INFO chromadb.telemetry.product.posthog Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+07/01/2024 05:22:53 PM INFO chromadb.telemetry.product.posthog Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+07/01/2024 05:22:53 PM INFO storage.ChromaVectorStore Conexión exitosa con el servidor de Chroma
+07/01/2024 05:22:53 PM INFO storage.ChromaVectorStore Base de datos Chroma inicializada.
+07/01/2024 05:24:10 PM INFO httpx HTTP Request: POST http://172.18.0.3:11434/api/chat "HTTP/1.1 200 OK"
+07/01/2024 05:24:10 PM INFO Rag Respuesta obtenida del modelo de lenguaje.

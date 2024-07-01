@@ -118,7 +118,7 @@ class Rag:
         # Clean up the MP3 file
         #os.remove(mp3_filename)
 
-        return wav_filename
+        return mp3_filename
 
     def convert_mp3_to_wav(mp3_file_path, wav_file_path):
         """

@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Activating other functions...");
 
         // Specify the path to the MP3 file
-        string mp3FilePath = @"C:\Users\PC\Dev\alina\audio\response_audio.mp3"; // Update this path
+        string mp3FilePath = Environment.GetEnvironmentVariable("VOLUMEN_AUDIO");
 
         // Load and play the audio
         StartCoroutine(LoadAndPlayResponseAudio(mp3FilePath));

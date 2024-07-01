@@ -1,8 +1,27 @@
 import socket
 import threading
+import socket
+import threading
+#from rag import Rag
 from Rag import Rag  # Ensure Rag has a queryllm method
-
 class UnityConnector:
+    """
+    A class that represents a Unity Connector.
+
+    The UnityConnector class is responsible for handling client connections and processing messages received from clients.
+    It listens for incoming connections, receives messages from clients, processes the messages using an instance of the Rag class,
+    and sends back the response to the clients.
+
+    Attributes:
+        host (str): The host address to bind the server socket.
+        port (int): The port number to bind the server socket.
+        connections (int): The maximum number of connections to listen for.
+
+    Methods:
+        handle_client(connection): Handles the client connection and processes the messages received.
+        run(): Starts the server and listens for incoming connections.
+    """
+
     def __init__(self, host, port, connections):
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server_address = (host, port)
@@ -11,6 +30,15 @@ class UnityConnector:
         self.rag = Rag()  # Instance of Rag to use for LLM queries
 
     def handle_client(self, connection):
+        """
+        Handles the client connection and processes the messages received.
+
+        Args:
+            connection (socket): The client connection socket.
+
+        Returns:
+            None
+        """
         with connection:
             print('Client connected:', connection)
             while True:
@@ -38,6 +66,15 @@ class UnityConnector:
                     break
 
     def run(self):
+        """
+        Starts the server and listens for incoming connections.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         while True:
             try:
                 print('Waiting for a connection')
